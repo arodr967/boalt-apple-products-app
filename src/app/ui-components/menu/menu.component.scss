@@ -1,0 +1,13 @@
+.top-bar {
+    background-color: black;
+  
+    // Center the logo
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .logo-container {
+      .logo {
+        width: 30px;
+      }
+    }
+  }
