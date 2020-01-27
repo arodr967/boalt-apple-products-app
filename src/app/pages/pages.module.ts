@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 // Pages
 import { HomeComponent } from "./home/home.component";
 import { LandingComponent } from "./landing/landing.component";
-import { ComponentsModule } from "../ui-components/components.module";
+import { ComponentsModule } from "../components/components.module";
 import { IphoneComponent } from './iphone/iphone.component';
 
 @NgModule({

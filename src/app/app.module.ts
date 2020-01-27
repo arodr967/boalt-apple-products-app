@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { PagesModule } from "./pages/pages.module";
 
 // Components
-import { ComponentsModule } from './ui-components/components.module';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [AppComponent],
