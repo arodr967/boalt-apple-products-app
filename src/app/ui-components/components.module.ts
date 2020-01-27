@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { CommonModule } from "@angular/common";
 import { ReactiveFormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
 
 // Animations
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -18,6 +19,7 @@ import { LoginFormComponent } from "./login-form/login-form.component";
     BrowserModule,
     CommonModule,
     BrowserAnimationsModule,
+    RouterModule,
     ReactiveFormsModule
   ],
   exports: [MenuComponent, RegisterFormComponent, LoginFormComponent],

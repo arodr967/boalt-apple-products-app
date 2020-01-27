@@ -10,16 +10,17 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HomeComponent } from "./home/home.component";
 import { LandingComponent } from "./landing/landing.component";
 import { ComponentsModule } from "../ui-components/components.module";
+import { IphoneComponent } from './iphone/iphone.component';
 
 @NgModule({
-  declarations: [HomeComponent, LandingComponent],
+  declarations: [HomeComponent, LandingComponent, IphoneComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     ComponentsModule,
     RouterModule
   ],
-  exports: [HomeComponent, LandingComponent],
+  exports: [HomeComponent, LandingComponent, IphoneComponent],
   providers: []
 })
 export class PagesModule {}

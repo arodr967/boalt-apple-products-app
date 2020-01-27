@@ -20,21 +20,29 @@ import { Subject } from "rxjs";
 @Component({
   selector: "app-menu",
   template: `
-    <div [class.menu]="isHomePage">
+    <div [class.menu]="!isLandingPage">
       <div
         [@initialMenu]="started ? 'end' : 'start'"
-        [@productMenu]="isHomePage ? 'start' : 'end'"
+        [@productMenu]="!isLandingPage ? 'start' : 'end'"
         class="black-bar"
       >
         <div
           [@initialMenuLogo]="started ? 'end' : 'start'"
           class="logo-container"
+          routerLink="/"
         >
-          <img class="logo-container__img" src="../assets/apple-logo-white.png" />
+          <img
+            class="logo-container__img"
+            src="../assets/apple-logo-white.png"
+          />
         </div>
       </div>
-      <div [@buttonContainer]="isHomePage ? 'start': 'end'" *ngIf="isHomePage" class="button-container">
-        <button>iPhone</button>
+      <div
+        [@buttonContainer]="!isLandingPage ? 'start' : 'end'"
+        *ngIf="!isLandingPage"
+        class="button-container"
+      >
+        <button routerLink="/iphone">iPhone</button>
         <button>MacBook Pro</button>
         <button>Watch</button>
         <button class="raised">Notify me</button>
@@ -114,7 +122,7 @@ import { Subject } from "rxjs";
   ]
 })
 export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
-  isHomePage = false;
+  isLandingPage = true;
   started = false;
   destroy$ = new Subject();
 
@@ -128,7 +136,7 @@ export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
         // Get the url when navigation is complete
         filter(e => e instanceof NavigationEnd)
       )
-      .subscribe((e: NavigationEnd) => (this.isHomePage = e.url === "/home"));
+      .subscribe((e: NavigationEnd) => (this.isLandingPage = e.url === "/"));
   }
 
   ngAfterViewInit() {
