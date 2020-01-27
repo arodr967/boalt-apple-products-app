@@ -1,32 +1,31 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { BrowserModule } from "@angular/platform-browser";
+import { CommonModule } from '@angular/common';
+
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
 
 // Animations
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 // UI Components
-import { MenuComponent } from './ui-components/menu/menu.component';
+import { MenuComponent } from "./ui-components/menu/menu.component";
 
 // Pages
-import { HomeComponent } from './pages/home/home.component';
-import { LandingComponent } from './pages/landing/landing.component';
+import { PagesModule } from "./pages/pages.module";
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    MenuComponent,
-    LandingComponent
-  ],
+  declarations: [AppComponent, MenuComponent],
   imports: [
     BrowserModule,
+    CommonModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
+    PagesModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

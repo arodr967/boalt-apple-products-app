@@ -1,0 +1,39 @@
+@import '../../../styles.scss';
+
+.home-page {
+  height: 100vh;
+
+  margin: 0px 70px;
+
+  // Center the logo
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* For browsers that do not support gradients */
+  background-color: rgb(242, 242, 242);
+  /* Standard syntax (must be last) */
+  background-image: linear-gradient(to right, rgb(242, 242, 242), white);
+
+  // TODO: figure out how to fade in the logo
+  .logo-container {
+    height: 65vh;
+    .logo {
+      width: 250px;
+    }
+  }
+  // TODO: figure out how to fade in the title
+  .title {
+    position: absolute;
+    bottom: 52vh;
+    font-size: 40px;
+    font-weight: 900;
+  }
+  // TODO: figure out how to fade in the sub-title
+  .sub-title {
+    position: absolute;
+    bottom: 36vh;
+    font-size: 12px;
+    color: $blue;
+  }
+}

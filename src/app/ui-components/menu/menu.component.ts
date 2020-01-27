@@ -1,4 +1,11 @@
-import { Component, OnChanges, AfterViewInit, Input } from "@angular/core";
+import {
+  Component,
+  OnChanges,
+  AfterViewInit,
+  Input,
+  OnInit,
+  OnDestroy
+} from "@angular/core";
 import {
   trigger,
   state,
@@ -6,20 +13,31 @@ import {
   transition,
   animate
 } from "@angular/animations";
+import { Router, NavigationEnd } from "@angular/router";
+import { filter, takeUntil } from "rxjs/operators";
+import { Subject } from "rxjs";
 
 @Component({
   selector: "app-menu",
   template: `
-    <div
-      [@initialMenu]="started ? 'end' : 'start'"
-      [@productMenu]="isContentClicked ? 'start' : 'end'"
-      class="top-bar"
-    >
+    <div [class.menu]="isHomePage">
       <div
-        [@initialMenuLogo]="started ? 'end' : 'start'"
-        class="logo-container"
+        [@initialMenu]="started ? 'end' : 'start'"
+        [@productMenu]="isHomePage ? 'start' : 'end'"
+        class="black-bar"
       >
-        <img class="logo" src="../assets/apple-logo-white.png" />
+        <div
+          [@initialMenuLogo]="started ? 'end' : 'start'"
+          class="logo-container"
+        >
+          <img class="logo" src="../assets/apple-logo-white.png" />
+        </div>
+      </div>
+      <div [@buttonContainer]="isHomePage ? 'start': 'end'" *ngIf="isHomePage" class="button-container">
+        <button>iPhone</button>
+        <button>MacBook Pro</button>
+        <button>Watch</button>
+        <button class="raised">Notify me</button>
       </div>
     </div>
   `,
@@ -29,7 +47,7 @@ import {
       state(
         "end",
         style({
-          height: "80px"
+          height: "70px"
         })
       ),
       state(
@@ -62,24 +80,56 @@ import {
         "start",
         style({
           width: "70px",
-          height: "80px"
+          height: "70px"
         })
       ),
       state(
         "end",
         style({
-          height: "80px"
+          height: "70px"
         })
       ),
-      transition("start => end", [animate("1s")]),
-      transition("end => start", [animate("0.5s")])
+      transition("start => end", [animate("1s ease-out")]),
+      transition("end => start", [animate("1s ease-out")])
+    ]),
+
+    trigger("buttonContainer", [
+      state(
+        "end",
+        style({
+          width: "70px",
+          height: "70px"
+        })
+      ),
+      state(
+        "start",
+        style({
+          width: "calc(100% - 140px)",
+          marginRight: "70px"
+        })
+      ),
+      transition("start => end", [animate("1s ease-out")]),
+      transition("end => start", [animate("1s ease-out")])
     ])
   ]
 })
-export class MenuComponent implements AfterViewInit {
-  @Input() isContentClicked;
-
+export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
+  isHomePage = false;
   started = false;
+  destroy$ = new Subject();
+
+  constructor(private readonly router: Router) {}
+
+  ngOnInit() {
+    this.router.events
+      .pipe(
+        // Unsubcribe when the component is destroyed
+        takeUntil(this.destroy$),
+        // Get the url when navigation is complete
+        filter(e => e instanceof NavigationEnd)
+      )
+      .subscribe((e: NavigationEnd) => (this.isHomePage = e.url === "/home"));
+  }
 
   ngAfterViewInit() {
     // Timeout is used here to defer the following code in another
@@ -87,5 +137,10 @@ export class MenuComponent implements AfterViewInit {
     setTimeout(() => {
       this.started = !this.started;
     });
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

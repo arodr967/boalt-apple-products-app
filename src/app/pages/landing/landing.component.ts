@@ -14,8 +14,8 @@ import { ActivatedRoute, Router } from "@angular/router";
   template: `
     <div
       [@content]="started ? 'end' : 'start'"
-      class="content"
-      (click)="onContentClick()"
+      class="landing-page"
+      routerLink="/home"
     >
       <div class="logo-container">
         <img class="logo" src="../assets/apple-logo-white.png" />
@@ -45,7 +45,7 @@ import { ActivatedRoute, Router } from "@angular/router";
     ])
   ]
 })
-export class LandingComponent implements OnInit, AfterViewInit {
+export class LandingComponent implements AfterViewInit {
   started = false;
   isContentClicked$ = new BehaviorSubject(false);
 
@@ -53,10 +53,6 @@ export class LandingComponent implements OnInit, AfterViewInit {
     private readonly route: ActivatedRoute,
     private readonly router: Router
   ) {}
-
-  ngOnInit() {
-    console.log('MADE IT!!!');
-  }
 
   ngAfterViewInit() {
     // Timeout is used here to defer the following code in another

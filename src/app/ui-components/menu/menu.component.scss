@@ -1,13 +1,43 @@
-.top-bar {
-    background-color: black;
-  
-    // Center the logo
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .logo-container {
-      .logo {
-        width: 30px;
-      }
+@import '../../../styles.scss';
+
+.menu {
+  display: flex;
+}
+
+.black-bar {
+  background-color: black;
+
+  // Center the logo
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .logo-container {
+    .logo {
+      width: 30px;
     }
   }
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 70px;
+  margin-right: 70px;
+  align-items: center;
+  button {
+    cursor: pointer;
+    font-size: 12px;
+    color: $gray;
+    margin: 10px;
+  }
+
+  .raised {
+    color: white;
+    background-color: $blue;
+    margin: 10px;
+    padding: 8px;
+    border-radius: 14px;
+    width: 100px;
+  }
+}
