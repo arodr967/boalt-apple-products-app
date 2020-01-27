@@ -1,4 +1,4 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
 .home-page {
   height: 100vh;
@@ -18,7 +18,7 @@
   // TODO: figure out how to fade in the logo
   .logo-container {
     height: 65vh;
-    .logo {
+    .logo-container__img {
       width: 250px;
     }
   }

@@ -30,7 +30,7 @@ import { Subject } from "rxjs";
           [@initialMenuLogo]="started ? 'end' : 'start'"
           class="logo-container"
         >
-          <img class="logo" src="../assets/apple-logo-white.png" />
+          <img class="logo-container__img" src="../assets/apple-logo-white.png" />
         </div>
       </div>
       <div [@buttonContainer]="isHomePage ? 'start': 'end'" *ngIf="isHomePage" class="button-container">

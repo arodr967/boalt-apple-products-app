@@ -18,7 +18,7 @@ import { ActivatedRoute, Router } from "@angular/router";
       routerLink="/home"
     >
       <div class="logo-container">
-        <img class="logo" src="../assets/apple-logo-white.png" />
+        <img class="logo-container__img" src="../assets/apple-logo-white.png" />
       </div>
 
       <h1 class="title">New Products Coming This Summer</h1>

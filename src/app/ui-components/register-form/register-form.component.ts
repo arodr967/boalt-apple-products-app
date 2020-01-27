@@ -4,12 +4,12 @@ import { FormControl, FormGroup } from "@angular/forms";
 @Component({
   selector: "app-register-form",
   template: `
-    <div class="register-form">
-      <h1 class="title">Sign up</h1>
-      <p class="sub-title">
+    <div class="form">
+      <h1 class="form__title">Sign up</h1>
+      <p class="form__sub-title"> 
         You must sign up in order to view the contents of this website.
       </p>
-      <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <form class="form__content" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <p
           class="top-error"
           [hidden]="!registerForm?.invalid || !clickedSubmit"
@@ -17,7 +17,7 @@ import { FormControl, FormGroup } from "@angular/forms";
           Something went wrong, please try again.
         </p>
 
-        <div class="input">
+        <div class="form__input">
           <label>
             Name:
             <input type="text" required minlength="5" formControlName="name" />
@@ -27,7 +27,7 @@ import { FormControl, FormGroup } from "@angular/forms";
           </p>
         </div>
 
-        <div class="input">
+        <div class="form__input">
           <label>
             Email:
             <input type="email" required email formControlName="email" />
@@ -37,7 +37,7 @@ import { FormControl, FormGroup } from "@angular/forms";
           </p>
         </div>
 
-        <div class="input">
+        <div class="form__input">
           <label>
             Password:
             <input
@@ -56,7 +56,7 @@ import { FormControl, FormGroup } from "@angular/forms";
         </div>
 
         <div>
-          <button class="raised submit" type="submit">
+          <button class="raised submit__button" type="submit">
             Sign up
           </button>
           <button type="button" (click)="handleShowLoginForm()">

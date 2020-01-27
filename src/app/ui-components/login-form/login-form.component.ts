@@ -4,17 +4,17 @@ import { FormGroup, FormControl } from "@angular/forms";
 @Component({
   selector: "app-login-form",
   template: `
-    <div class="login-form">
-      <h1 class="title">Login</h1>
-      <p class="sub-title">
+    <div class="form">
+      <h1 class="form__title">Login</h1>
+      <p class="form__sub-title">
         You must log in order to view the contents of this website.
       </p>
-      <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <form class="form__content" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <p class="top-error" [hidden]="!loginForm?.invalid || !clickedSubmit">
           Something went wrong, please try again.
         </p>
 
-        <div class="input">
+        <div class="form__input">
           <label>
             Email:
             <input type="email" required email formControlName="email" />
@@ -24,7 +24,7 @@ import { FormGroup, FormControl } from "@angular/forms";
           </p>
         </div>
 
-        <div class="input">
+        <div class="form__input">
           <label>
             Password:
             <input
@@ -43,7 +43,7 @@ import { FormGroup, FormControl } from "@angular/forms";
         </div>
 
         <div>
-          <button class="raised submit" type="submit">
+          <button class="raised submit__button" type="submit">
             Log in
           </button>
           <button type="button" (click)="handleShowSignupForm()">

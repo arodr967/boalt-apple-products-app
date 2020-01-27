@@ -7,7 +7,7 @@ import { Component, OnInit } from "@angular/core";
       <div *ngIf="!unauthorized">
         <div class="logo-container">
           <!--TODO: Find gray apple logo-->
-          <img class="logo" src="../assets/apple-logo-white.png" />
+          <img class="logo-container__img" src="../assets/apple-logo-white.png" />
         </div>
 
         <h1 class="title">Welcome to Apple</h1>

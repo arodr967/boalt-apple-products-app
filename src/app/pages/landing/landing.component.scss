@@ -1,41 +1,40 @@
 .landing-page {
-    height: 50vh;
-  
-    // To indicate that it is clickable
-    cursor: pointer;
-  
-    // Center the logo
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    /* For browsers that do not support gradients */
-    background-color: rgb(152, 214, 247);
-    /* Standard syntax (must be last) */
-    background-image: linear-gradient(rgb(152, 214, 247), white);
-  
-    // TODO: figure out how to fade in the logo
-    .logo-container {
-      height: 250px;
-      .logo {
-        width: 250px;
-      }
-    }
-    // TODO: figure out how to fade in the title
-    .title {
-      position: absolute;
-      bottom: 58vh;
-      font-size: 18px;
-    }
-    // TODO: figure out how to fade in the sub-title
-    .sub-title {
-      position: absolute;
-      bottom: 31vh;
-      font-size: 46px;
-      font-weight: bold;
-      // Sub title does not appear centered because of the letter-spacing
-      // TODO: Figure out how to remove spacing from the last letter
-      letter-spacing: 15px;
+  height: 50vh;
+
+  // To indicate that it is clickable
+  cursor: pointer;
+
+  // Center the logo
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* For browsers that do not support gradients */
+  background-color: rgb(152, 214, 247);
+  /* Standard syntax (must be last) */
+  background-image: linear-gradient(rgb(152, 214, 247), white);
+
+  // TODO: figure out how to fade in the logo
+  .logo-container {
+    height: 250px;
+    .logo-container__img {
+      width: 250px;
     }
   }
-  
+  // TODO: figure out how to fade in the title
+  .title {
+    position: absolute;
+    bottom: 58vh;
+    font-size: 18px;
+  }
+  // TODO: figure out how to fade in the sub-title
+  .sub-title {
+    position: absolute;
+    bottom: 31vh;
+    font-size: 46px;
+    font-weight: bold;
+    // Sub title does not appear centered because of the letter-spacing
+    // TODO: Figure out how to remove spacing from the last letter
+    letter-spacing: 15px;
+  }
+}
