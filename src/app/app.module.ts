@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 
 import { BrowserModule } from "@angular/platform-browser";
-import { CommonModule } from '@angular/common';
+import { CommonModule } from "@angular/common";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -9,20 +9,20 @@ import { AppComponent } from "./app.component";
 // Animations
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-// UI Components
-import { MenuComponent } from "./ui-components/menu/menu.component";
-
 // Pages
 import { PagesModule } from "./pages/pages.module";
 
+// Components
+import { ComponentsModule } from './ui-components/components.module';
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     CommonModule,
     BrowserAnimationsModule,
     PagesModule,
+    ComponentsModule,
     AppRoutingModule
   ],
   providers: [],

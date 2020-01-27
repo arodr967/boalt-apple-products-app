@@ -1,0 +1,46 @@
+@import "../../../styles.scss";
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .title {
+    font-size: 26px;
+    font-weight: bolder;
+    margin: 10px;
+  }
+  .sub-title {
+    font-size: 12px;
+    margin: 10px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 10px;
+    align-items: flex-start;
+    label {
+      width: 250px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .submit {
+      margin-left: 0;
+    }
+    .top-error {
+      font-size: 10px;
+      margin-bottom: 10px;
+      color: red;
+    }
+    .inline-error {
+      font-size: 10px;
+      margin: 4px 0 4px 0;
+      color: red;
+    }
+    .input {
+      margin-bottom: 10px;
+    }
+  }
+}
